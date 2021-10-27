@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import paginaInicial from './componentes/paginaInical';
 import paginaCart from './componentes/paginaCart';
 import DetalhamentoDoProduto from './componentes/detalhamentoDoProduto';
+import finalizaCompras from './componentes/finalizaCompras';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             path="/detalhe/:categoryId/:id"
             render={ (props) => <DetalhamentoDoProduto { ...props } /> }
           />
+          <Route path="/checkout" component={ finalizaCompras } />
           <Route path="/" component={ paginaInicial } />
         </Switch>
       </BrowserRouter>
