@@ -22,8 +22,9 @@ class AvaliacaoProduto extends Component {
   }
 
   carregaComentarios() {
+    const comentariosAnteriores = JSON.parse(localStorage.getItem('comentarios'));
     this.setState({
-      comentarios: JSON.parse(localStorage.getItem('comentarios')),
+      comentarios: !comentariosAnteriores ? [] : comentariosAnteriores,
     });
   }
 
@@ -34,7 +35,6 @@ class AvaliacaoProduto extends Component {
   }
 
   enviarAvaliacao() {
-    // const { login, texto, avaliacao, comentarios } = this.state;
     this.setState(({ comentarios, login, texto, avaliacao }) => ({
       comentarios: [...comentarios, {
         login, texto, avaliacao,
@@ -47,6 +47,7 @@ class AvaliacaoProduto extends Component {
 
   render() {
     const { avaliacao, hover, comentarios, login, texto } = this.state;
+    const estrelas = 5;
     return (
       <div>
         <h1>Avaliações</h1>
@@ -58,7 +59,8 @@ class AvaliacaoProduto extends Component {
             onChange={ this.mudancaInput }
             name="login"
           />
-          {[...Array(5)].map((star, i) => (
+          {/* revisar */}
+          {[...Array(estrelas)].map((star, i) => (
             <label htmlFor="avaliacao" key={ i }>
               <input
                 className="radio"
@@ -71,7 +73,7 @@ class AvaliacaoProduto extends Component {
                 className="estrela"
                 color={ i + 1 <= (avaliacao || hover) ? 'yellow' : 'grey' }
                 onMouseEnter={ () => this.setState({ hover: i + 1 }) }
-                onMouseLeave={ () => this.setState(null) }
+                onMouseLeave={ () => this.setState({ hover: null }) }
               />
             </label>
           ))}
@@ -90,7 +92,7 @@ class AvaliacaoProduto extends Component {
           </button>
         </form>
         { comentarios && comentarios.map((comentario) => (
-          <div key={ comentario.login }>
+          <div key={ `${comentario.login}: ${comentario.comentario}` }>
             <p>{comentario.login}</p>
             <p>{comentario.texto}</p>
             <p>{comentario.avaliacao}</p>
