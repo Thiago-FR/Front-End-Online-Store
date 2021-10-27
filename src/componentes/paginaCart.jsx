@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { removerProduto, pegarProduto, atualizaItem } from '../services/salvarProdutos';
 
 class paginaCart extends Component {
@@ -101,6 +102,9 @@ class paginaCart extends Component {
           Total R$:
           { this.pegarPrecoTotal() }
         </p>
+        <Link to="/checkout" data-testid="checkout-products">
+          <p>Finalizar Compra</p>
+        </Link>
       </div>
     );
   }
