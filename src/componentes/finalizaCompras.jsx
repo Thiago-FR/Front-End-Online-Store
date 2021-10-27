@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { pegarProduto } from '../services/salvarProdutos';
 import Estados from './Estado';
 
@@ -38,38 +38,79 @@ export default class finalizaCompras extends Component {
               <span
                 data-testid="shopping-cart-product-quantity"
               >
-                Quantidade: { item.quantidade }
+                Quantidade:
+                { item.quantidade }
               </span>
             </div>
-          )) }
-        <h4>Valor Total: R$ { this.pegarPrecoTotal() }</h4>
+          ))
+        }
+        <h4>
+          Valor Total: R$
+          { this.pegarPrecoTotal() }
+        </h4>
         <form>
           <h4>Informações do Comprador</h4>
           <div>
             <label htmlFor="infoComprador">
-              <input data-testid="checkout-fullname" type="text" placeholder="Nome Completo" id="infoComprador" required />
+              <input
+                data-testid="checkout-fullname"
+                type="text"
+                placeholder="Nome Completo"
+                id="infoComprador"
+                required
+              />
             </label>
             <label htmlFor="emailComprador">
-              <input data-testid="checkout-email" type="e-mail" placeholder="Email" id="emailComprador" required />
+              <input
+                data-testid="checkout-email"
+                type="e-mail"
+                placeholder="Email"
+                id="emailComprador"
+                required
+              />
             </label>
             <label htmlFor="cpfComprador">
-              <input data-testid="checkout-cpf" type="text" placeholder="CPF" id="cpfComprador" required />
+              <input
+                data-testid="checkout-cpf"
+                type="text"
+                placeholder="CPF"
+                id="cpfComprador"
+                required
+              />
             </label>
           </div>
           <div>
             <label htmlFor="telefoneComprador">
-              <input data-testid="checkout-phone" type="text" placeholder="Telefone" id="telefoneComprador" required />
+              <input
+                data-testid="checkout-phone"
+                type="text"
+                placeholder="Telefone"
+                id="telefoneComprador"
+                required
+              />
             </label>
             <label htmlFor="cepComprador">
-              <input data-testid="checkout-cep" type="text" placeholder="CEP" id="cepComprador" required />
+              <input
+                data-testid="checkout-cep"
+                type="text"
+                placeholder="CEP"
+                id="cepComprador"
+                required
+              />
             </label>
             <label htmlFor="enderecoComprador">
-              <input data-testid="checkout-address" type="text" placeholder="Endereço" id="checkout-address" required />
+              <input
+                data-testid="checkout-address"
+                type="text"
+                placeholder="Endereço"
+                id="checkout-address"
+                required
+              />
               <Estados />
             </label>
           </div>
         </form>
       </div>
-    )
+    );
   }
 }
