@@ -28,27 +28,52 @@ class DetalhamentoDoProduto extends React.Component {
     const { attributes } = produto;
 
     return (
-      <div>
-        <h3 data-testid="product-detail-name">{ produto.title }</h3>
-        <img src={ produto.thumbnail } alt={ produto.title } />
-        <p>
-          Preço:
-          { produto.price }
-        </p>aaa
-        <h4>Especificações Tecnicas</h4>
-        {attributes && attributes.map((atributo) => (
-          <p key={ atributo.name }>a
-            {`${atributo.name}: ${atributo.value_name}`}
-          </p>
-        ))}
-        <button
-          type="button"
-          data-testid="product-detail-add-to-cart"
-          onClick={ () => salvarProduto(produto) }
-        >
-          Adicionar ao carrinho
-        </button>
-        <CartButton />
+      <div
+        className="card mb-3"
+        style={ { width: '550px' } }
+      >
+        <div className="p-3 mb-2 bg-dark text-white">
+          <div className="col-md-4">
+            <img
+              style={ { width: '250px' } }
+              className="img-fluid rounded-start"
+              src={ produto.thumbnail }
+              alt={ produto.title }
+            />
+          </div>
+          <div className="col-md-8 p-3 mb-2 bg-secondary text-white">
+            <div className="card-body">
+              <h3
+                className="card-title"
+                data-testid="product-detail-name"
+              >
+                { produto.title }
+              </h3>
+              <p className="card-text">
+                Preço:
+                { produto.price }
+              </p>
+              <h4 className="card-title">Especificações Tecnicas</h4>
+              {attributes && attributes.map((atributo) => (
+                <p
+                  key={ atributo.name }
+                  className="card-text"
+                >
+                  {`${atributo.name}: ${atributo.value_name}`}
+                </p>
+              ))}
+              <button
+                className="btn btn-dark"
+                type="button"
+                data-testid="product-detail-add-to-cart"
+                onClick={ () => salvarProduto(produto) }
+              >
+                Adicionar ao carrinho
+              </button>
+              <CartButton />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

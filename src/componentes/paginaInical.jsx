@@ -46,10 +46,11 @@ class paginaInicial extends React.Component {
   render() {
     const { campoDePesquisa, digitando, resultado } = this.state;
     return (
-      <div>
+      <div className="cabeçalho">
         <form>
           <label htmlFor="campoDePesquisa">
             <input
+              className="btn btn-outline-dark espaçamento-botao"
               type="text"
               data-testid="query-input"
               name="campoDePesquisa"
@@ -58,6 +59,7 @@ class paginaInicial extends React.Component {
             />
           </label>
           <button
+            className="btn btn-dark"
             type="button"
             data-testid="query-button"
             onClick={ this.buscandoAPI }
@@ -68,9 +70,11 @@ class paginaInicial extends React.Component {
         <h3 data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
         </h3>
-        <Produtos resultado={ resultado } />
         <CartButton />
-        <FiltroCategoria mudandoCategoria={ this.mudandoCategoria } />
+        <div className="categoria">
+          <Produtos resultado={ resultado } />
+          <FiltroCategoria mudandoCategoria={ this.mudandoCategoria } />
+        </div>
       </div>
     );
   }

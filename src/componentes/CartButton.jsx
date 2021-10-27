@@ -5,7 +5,14 @@ class CartButton extends Component {
   render() {
     return (
       <div>
-        <Link to="/carrinho" data-testid="shopping-cart-button">Carrinho</Link>
+        <Link
+          className="btn btn-dark padding-baixo"
+          to="/carrinho"
+          data-testid="shopping-cart-button"
+        >
+          Carrinho
+
+        </Link>
       </div>
     );
   }
