@@ -1,0 +1,8 @@
+.radio {
+  display: none;
+}
+
+.estrela {
+  cursor: pointer;
+  transition: color 200ms;
+}

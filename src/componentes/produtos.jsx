@@ -24,6 +24,13 @@ class Produtos extends React.Component {
               data-testid="product"
             >
               <div className="cabeçalho-itens">
+                { element.shipping.free_shipping && (
+                  <p data-testid="free-shipping">FRETE GRATIS</p>
+                )}
+                <p>
+                  R$
+                  { element.price }
+                </p>
                 <Link
                   className="btn btn-dark link-itens"
                   to={ `/detalhe/${element.category_id}/${element.id}` }
