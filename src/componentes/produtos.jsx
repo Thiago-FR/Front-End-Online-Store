@@ -15,30 +15,35 @@ class Produtos extends React.Component {
 
   render() {
     const { resultado } = this.props;
-    return (
-      <div>
+    return resultado.length !== 0 && (
+      <div className="moldura itens">
         {
           resultado.map((element) => (
             <div
               key={ element.id }
               data-testid="product"
             >
-              <div>
-                <p>
-                  R$
-                  { element.price }
-                </p>
+              <div className="cabeçalho-itens">
                 <Link
+                  className="btn btn-dark link-itens"
                   to={ `/detalhe/${element.category_id}/${element.id}` }
                   data-testid="product-detail-link"
                 >
-                  <p>
-                    nome
+                  <p className="card-title">
                     { element.title }
                   </p>
                 </Link>
-                <img src={ element.thumbnail } alt={ element.title } />
+                <p className="fs-3 preço">
+                  R$:
+                  { element.price }
+                </p>
+                <img
+                  className="imagem-item"
+                  src={ element.thumbnail }
+                  alt={ element.title }
+                />
                 <button
+                  className="btn btn-dark botao-itens"
                   data-testid="product-add-to-cart"
                   type="button"
                   onClick={ () => this.adicionarProduto(element) }

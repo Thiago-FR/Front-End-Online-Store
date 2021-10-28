@@ -47,33 +47,38 @@ class paginaInicial extends React.Component {
     const { campoDePesquisa, digitando, resultado } = this.state;
     return (
       <div className="cabeçalho">
-        <form>
-          <label htmlFor="campoDePesquisa">
-            <input
-              className="btn btn-outline-dark espaçamento-botao"
-              type="text"
-              data-testid="query-input"
-              name="campoDePesquisa"
-              value={ campoDePesquisa }
-              onChange={ digitando }
-            />
-          </label>
-          <button
-            className="btn btn-dark"
-            type="button"
-            data-testid="query-button"
-            onClick={ this.buscandoAPI }
-          >
-            Pesquisar
-          </button>
-        </form>
-        <h3 data-testid="home-initial-message">
+        <div className="pesquisa-carrinho">
+          <form>
+            <label htmlFor="campoDePesquisa">
+              <input
+                placeholder="digite aqui"
+                className="btn btn-outline-dark"
+                type="text"
+                data-testid="query-input"
+                name="campoDePesquisa"
+                value={ campoDePesquisa }
+                onChange={ digitando }
+              />
+            </label>
+            <button
+              className="btn btn-dark espaçamento-botao"
+              type="button"
+              data-testid="query-button"
+              onClick={ this.buscandoAPI }
+            >
+              Pesquisar
+            </button>
+          </form>
+          <CartButton />
+        </div>
+        <h3 className="initial-message" data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
         </h3>
-        <CartButton />
-        <div className="categoria">
+        <div className="categoria-itens">
+          <div className="moldura categoria">
+            <FiltroCategoria mudandoCategoria={ this.mudandoCategoria } />
+          </div>
           <Produtos resultado={ resultado } />
-          <FiltroCategoria mudandoCategoria={ this.mudandoCategoria } />
         </div>
       </div>
     );

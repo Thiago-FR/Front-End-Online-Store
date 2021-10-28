@@ -2,7 +2,7 @@ body {
   display: flex;
   flex-flow: column;
   align-items: center; 
-  background-color: rgb(33, 37, 41);
+  background-color: white;
   color: white;
 }
 
@@ -12,8 +12,13 @@ body {
   align-items: center;
 }
 
-.padding-baixo {
-  margin-top: 4px;
+.btn-dark {
+  background-color: rgb(255, 101, 0);
+  border: none;
+}
+
+.btn-outline-dark {
+  background-color: rgb(240, 240, 240);
 }
 
 .card {
@@ -35,7 +40,7 @@ body {
 .cabeçalho {
   margin: 5px;
   padding: 20px;
-  background-color: grey;
+  background-color: rgb(228, 228, 228);
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -47,18 +52,96 @@ body {
   -o-border-radius: 10px;
 }
 
-.categoria {
-  margin-top: 10px;
-  border: 1px  solid black;
-  padding: 20px;
-  border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
-
+.pesquisa-carrinho {
+  display: flex;
 }
 
-/* .espaçamento-botao {
+.moldura {
+  margin-top: 10px;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: rgb(255, 101, 0);
+}
 
-} */
+.espaçamento-botao {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.initial-message {
+  margin-top: 10px;
+  color: rgb(87, 87, 87);
+}
+
+.categoria-itens {
+  display: flex;
+  justify-content: space-between;
+}
+
+.categoria {
+  display: flex;
+  margin-right: 20px;
+  background-color: rgb(255, 101, 0);
+  border: none;
+}
+
+.cabeçalho-itens {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: rgb(228, 228, 228);
+}
+
+.imagem-item {
+  width: 250px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.imagem-item-cart {
+  width: 450px;
+  border: 1px solid rgb(209, 209, 209);
+  border-radius: 10px;
+}
+
+.link-itens {
+  padding-top: 15px;
+}
+
+.botao-itens {
+  margin-top: 10px;
+}
+
+.preço {
+  margin-top: 13px;
+  color: rgb(87, 87, 87);
+}
+
+.tamanho-button {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 5px 20px;
+}
+
+.imagem-cart {
+  margin-bottom: 2px;
+}
+
+.cart-border {
+  border-radius: 20px;
+}
+
+.botao-voltar {
+  margin-bottom: 15px;
+}
+
+.cart-color {
+  background-color: gray;
+}
