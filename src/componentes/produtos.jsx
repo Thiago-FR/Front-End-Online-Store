@@ -24,6 +24,9 @@ class Produtos extends React.Component {
               data-testid="product"
             >
               <div>
+                { element.shipping.free_shipping && (
+                  <p data-testid="free-shipping">FRETE GRATIS</p>
+                )}
                 <p>
                   R$
                   { element.price }

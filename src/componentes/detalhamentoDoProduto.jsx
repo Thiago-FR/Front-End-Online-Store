@@ -26,10 +26,13 @@ class DetalhamentoDoProduto extends React.Component {
 
   render() {
     const { produto } = this.state;
-    const { attributes } = produto;
+    const { attributes, shipping } = produto;
 
     return (
       <div>
+        { shipping && shipping.free_shipping && (
+          <p data-testid="free-shipping">FRETE GRATIS</p>
+        )}
         <h3 data-testid="product-detail-name">{ produto.title }</h3>
         <img src={ produto.thumbnail } alt={ produto.title } />
         <p>
