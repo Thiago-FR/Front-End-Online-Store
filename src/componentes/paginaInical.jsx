@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 import Produtos from './produtos';
 import CartButton from './CartButton';
@@ -45,6 +46,7 @@ class paginaInicial extends React.Component {
 
   render() {
     const { campoDePesquisa, digitando, resultado } = this.state;
+    const { atualizaLista, quantidade } = this.props;
     return (
       <div>
         <form>
@@ -68,12 +70,21 @@ class paginaInicial extends React.Component {
         <h3 data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
         </h3>
-        <Produtos resultado={ resultado } />
-        <CartButton />
+        <Produtos resultado={ resultado } atualizaLista={ atualizaLista } />
+        <CartButton quantidade={ quantidade } />
         <FiltroCategoria mudandoCategoria={ this.mudandoCategoria } />
       </div>
     );
   }
 }
+
+paginaInicial.propTypes = {
+  atualizaLista: PropTypes.func.isRequired,
+  quantidade: PropTypes.number,
+};
+
+paginaInicial.defaultProps = {
+  quantidade: 0,
+};
 
 export default paginaInicial;
