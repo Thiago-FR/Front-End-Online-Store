@@ -118,7 +118,15 @@ class AvaliacaoProduto extends Component {
           >
             <p>{comentario.login}</p>
             <p>{comentario.texto}</p>
-            <p>{comentario.avaliacao}</p>
+            {[...Array(estrelas)].map((star, i) => {
+              const numeroEstrela = i + 1;
+              return (
+                <FaStar
+                  key={ i }
+                  color={ numeroEstrela <= (comentario.avaliacao) ? 'yellow' : 'grey' }
+                />
+              );
+            })}
           </div>
         ))}
       </div>
