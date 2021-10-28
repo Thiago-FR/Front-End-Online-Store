@@ -10,7 +10,9 @@ class Produtos extends React.Component {
   }
 
   adicionarProduto(element) {
+    const { atualizaLista } = this.props;
     salvarProduto(element);
+    atualizaLista();
   }
 
   render() {
@@ -58,6 +60,7 @@ class Produtos extends React.Component {
 }
 
 Produtos.propTypes = {
+  atualizaLista: PropTypes.func.isRequired,
   resultado: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
