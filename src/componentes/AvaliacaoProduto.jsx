@@ -11,10 +11,12 @@ class AvaliacaoProduto extends Component {
       comentarios: [],
       login: '',
       texto: '',
+      botaoDesabilitado: true,
     };
     this.mudancaInput = this.mudancaInput.bind(this);
     this.enviarAvaliacao = this.enviarAvaliacao.bind(this);
     this.carregaComentarios = this.carregaComentarios.bind(this);
+    this.validaBotao = this.validaBotao.bind(this);
   }
 
   componentDidMount() {
@@ -31,7 +33,16 @@ class AvaliacaoProduto extends Component {
   mudancaInput({ target: { value, name } }) {
     this.setState({
       [name]: value,
-    });
+    }, () => this.validaBotao());
+  }
+
+  validaBotao() {
+    const { avaliacao, login } = this.state;
+    if (avaliacao && login.length > 0) {
+      this.setState({ botaoDesabilitado: false });
+    } else {
+      this.setState({ botaoDesabilitado: true });
+    }
   }
 
   enviarAvaliacao() {
@@ -46,7 +57,7 @@ class AvaliacaoProduto extends Component {
   }
 
   render() {
-    const { avaliacao, hover, comentarios, login, texto } = this.state;
+    const { avaliacao, hover, comentarios, login, texto, botaoDesabilitado } = this.state;
     const estrelas = 5;
     return (
       <div>
@@ -59,24 +70,29 @@ class AvaliacaoProduto extends Component {
             onChange={ this.mudancaInput }
             name="login"
           />
-          {/* revisar */}
-          {[...Array(estrelas)].map((star, i) => (
-            <label htmlFor="avaliacao" key={ i }>
-              <input
-                className="radio"
-                type="radio"
-                name="avaliacao"
-                value={ i + 1 }
-                onClick={ ({ target: { value } }) => this.setState({ avaliacao: value }) }
-              />
-              <FaStar
-                className="estrela"
-                color={ i + 1 <= (avaliacao || hover) ? 'yellow' : 'grey' }
-                onMouseEnter={ () => this.setState({ hover: i + 1 }) }
-                onMouseLeave={ () => this.setState({ hover: null }) }
-              />
-            </label>
-          ))}
+          {/* Para fazer toda a lógica das estrelas, aprendemos com esse víde: https://www.youtube.com/watch?v=eDw46GYAIDQ */}
+          {[...Array(estrelas)].map((star, i) => {
+            const valorAvaliacao = i + 1;
+            return (
+              <label htmlFor="avaliacao" key={ i }>
+                <input
+                  className="radio"
+                  type="radio"
+                  name="avaliacao"
+                />
+                <FaStar
+                  className="estrela"
+                  color={ valorAvaliacao <= (hover || avaliacao) ? 'yellow' : 'grey' }
+                  onMouseEnter={ () => this.setState({ hover: valorAvaliacao }) }
+                  onMouseLeave={ () => this.setState({ hover: null }) }
+                  onClick={ () => {
+                    this.setState({ avaliacao: valorAvaliacao },
+                      () => this.validaBotao());
+                  } }
+                />
+              </label>
+            );
+          })}
           <label htmlFor="texto">
             <textarea
               data-testid="product-detail-evaluation"
@@ -86,13 +102,20 @@ class AvaliacaoProduto extends Component {
               name="texto"
             />
           </label>
-          <button type="button" onClick={ this.enviarAvaliacao }>
+          <button
+            type="button"
+            onClick={ this.enviarAvaliacao }
+            disabled={ botaoDesabilitado }
+          >
             Enviar comentário!!
-
           </button>
         </form>
         { comentarios && comentarios.map((comentario) => (
-          <div key={ `${comentario.login}: ${comentario.comentario}` }>
+          <div
+            key={
+              `${comentario.login}: ${comentario.avaliacao}: ${comentario.comentario}`
+            }
+          >
             <p>{comentario.login}</p>
             <p>{comentario.texto}</p>
             <p>{comentario.avaliacao}</p>
