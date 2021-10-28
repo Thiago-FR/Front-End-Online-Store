@@ -42,8 +42,13 @@ class Estados extends React.Component {
 }
 
 Estados.propTypes = {
-  handleChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
+  handleChange: PropTypes.func,
+  value: PropTypes.string,
+};
+
+Estados.defaultProps = {
+  handleChange: () => null,
+  value: '',
 };
 
 export default Estados;
