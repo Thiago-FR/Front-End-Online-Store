@@ -78,7 +78,6 @@ class paginaCart extends Component {
           <Link
             className="btn btn-dark imagem-item-cart botao-voltar padding-top"
             to="/checkout"
-            data-testid="checkout-products"
           >
             <p>Finalizar Compra</p>
           </Link>

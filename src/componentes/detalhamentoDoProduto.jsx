@@ -28,7 +28,7 @@ class DetalhamentoDoProduto extends React.Component {
   render() {
     const { produto } = this.state;
     const { attributes, shipping } = produto;
-
+    const { atualizaLista, quantidade } = this.props;
     return (
       <div
         className="card mb-3"
@@ -77,11 +77,11 @@ class DetalhamentoDoProduto extends React.Component {
                 className="btn btn-dark"
                 type="button"
                 data-testid="product-detail-add-to-cart"
-                onClick={ () => salvarProduto(produto) }
+                onClick={ () => { salvarProduto(produto); atualizaLista(); } }
               >
                 Adicionar ao carrinho
               </button>
-              <CartButton />
+              <CartButton quantidade={ quantidade } />
               <AvaliacaoProduto />
             </div>
           </div>
@@ -98,6 +98,12 @@ DetalhamentoDoProduto.propTypes = {
       categoryId: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
+  atualizaLista: PropTypes.func.isRequired,
+  quantidade: PropTypes.number,
+};
+
+DetalhamentoDoProduto.defaultProps = {
+  quantidade: 0,
 };
 
 export default DetalhamentoDoProduto;
