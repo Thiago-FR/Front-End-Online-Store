@@ -13,17 +13,26 @@ body {
 }
 
 .btn-dark {
-  background-color: rgb(255, 101, 0);
+  background-color: white;
   border: none;
+  color: black;
+}
+
+.btn-dark:hover {
+  background-color: rgb(255, 101, 0);
 }
 
 .btn-outline-dark {
-  background-color: rgb(240, 240, 240);
+  background-color: white;
+}
+
+.btn-outline-dark:hover {
+  background-color: rgb(255, 101, 0)
 }
 
 .card {
   background-clip: border-box;
-  background-color: rgb(33, 37, 41);
+  background-color: rgb(255, 101, 0);
   border: 1px solid rgb(255 255 255 / 80%);
   border-radius: 30px;
   display: flex;
@@ -92,6 +101,16 @@ body {
   width: 250px;
 }
 
+.imagem-item:hover {
+  border: 5px solid rgb(255, 101, 0);
+  width: 350px;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
 .imagem-item-cart {
   border: 1px solid rgb(209, 209, 209);
   border-radius: 10px;
@@ -107,8 +126,12 @@ body {
 }
 
 .preço {
-  color: rgb(87, 87, 87);
+  color: rgb(255, 101, 0);
   margin-top: 13px;
+}
+
+.preço1 {
+  color: rgb(255, 101, 0);
 }
 
 .tamanho-button {
@@ -129,6 +152,84 @@ body {
   margin-bottom: 15px;
 }
 
+.botao-voltar:hover {
+  background-color: rgb(255, 101, 0);
+  color: black;
+  border: none;
+}
+
 .cart-color {
-  background-color: gray;
+  background-color: rgb(228, 228, 228);
+}
+
+::placeholder {
+  color: black;
+}
+
+.gratis {
+  border: 1px solid rgb(255, 101, 0);
+  padding: 5px;
+}
+
+.fundo-detalhe2 {
+  background-color: rgb(228, 228, 228);
+}
+
+.centro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centralizar-letra {
+  text-align: center;
+}
+
+.orange-input {
+  background-color: rgb(255, 101, 0);
+}
+
+.form-text {
+  resize: none;
+  width: 275px;
+}
+
+.background-itens {
+  background-color: rgb(255, 101, 0);
+}
+
+.a {
+  color: black;
+  background-color: rgb(228, 228, 228);
+}
+
+.price-total {
+  color: rgb(255, 101, 0);
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.padding-top {
+  padding-top: 20px;
+}
+
+.center-price {
+  text-align: center;
+}
+
+.color-price {
+  color: rgb(255, 101, 0);
+  font-weight: bold;
+}
+
+.formulario {
+  max-width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.info-form {
+  color: black;
+  text-align: center;
 }

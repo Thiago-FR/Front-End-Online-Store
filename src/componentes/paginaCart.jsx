@@ -71,18 +71,29 @@ class paginaCart extends Component {
           >
             voltar
           </Link>
+          <p className="price-total center-price">
+            Total R$:
+            { this.pegarPrecoTotal() }
+          </p>
+          <Link
+            className="btn btn-dark imagem-item-cart botao-voltar padding-top"
+            to="/checkout"
+            data-testid="checkout-products"
+          >
+            <p>Finalizar Compra</p>
+          </Link>
           { listaProdutos.map((item, i) => (
             <div
-              className="p-3 mb-2 bg-dark text-white imagem-item-cart"
+              className="p-3 mb-2 text-white imagem-item-cart background-itens"
               key={ `${item.id}-${i}` }
             >
               <img
                 style={ { width: '200px' } }
-                className="img-fluid rounded-start imagem-cart"
+                className="img-fluid rounded-start imagem-cart tamanho-item"
                 src={ item.thumbnail }
                 alt=""
               />
-              <div className="col-md-8 p-3 mb-2 bg-secondary text-white cart-border">
+              <div className="col-md-8 p-3 mb-2 a cart-border">
                 <h4
                   className="card-title"
                   data-testid="shopping-cart-product-name"
@@ -127,11 +138,15 @@ class paginaCart extends Component {
             </div>
           )) }
         </div>
-        <p>
+        <p className="price-total ">
           Total R$:
           { this.pegarPrecoTotal() }
         </p>
-        <Link to="/checkout" data-testid="checkout-products">
+        <Link
+          className="btn btn-dark imagem-item-cart botao-voltar padding-top"
+          to="/checkout"
+          data-testid="checkout-products"
+        >
           <p>Finalizar Compra</p>
         </Link>
       </div>

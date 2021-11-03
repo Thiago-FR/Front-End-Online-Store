@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { pegarProduto } from '../services/salvarProdutos';
 import Estados from './Estado';
 
@@ -24,35 +25,60 @@ export default class finalizaCompras extends Component {
   render() {
     const { listaProdutos } = this.state;
     return (
-      <div>
-        <h1>Finalizando compras</h1>
+      <div
+        className="card mb-3 p-3 cart-color"
+      >
+        <Link
+          to="/"
+          className="btn btn-dark imagem-item-cart botao-voltar"
+        >
+          Página inicial
+        </Link>
+        <Link
+          to="/carrinho"
+          className="btn btn-dark imagem-item-cart botao-voltar"
+        >
+          Carrinho
+        </Link>
+        <h1 style={ { color: 'black' } }>Finalizando compras</h1>
         {
           listaProdutos.map((item, i) => (
-            <div key={ `${item.id}-${i}` }>
-              <img src={ item.thumbnail } alt="" />
-              <p data-testid="shopping-cart-product-name">{ item.title }</p>
-              <p>
-                R$
-                { item.price * item.quantidade }
-              </p>
-              <span
-                data-testid="shopping-cart-product-quantity"
-              >
-                Quantidade:
-                { item.quantidade }
-              </span>
+            <div
+              key={ `${item.id}-${i}` }
+              className="p-3 mb-2 text-white imagem-item-cart background-itens"
+            >
+              <img
+                src={ item.thumbnail }
+                alt=""
+                style={ { width: '200px' } }
+                className="img-fluid rounded-start imagem-cart"
+              />
+              <div className="col-md-8 p-3 mb-2 a cart-border">
+                <p data-testid="shopping-cart-product-name">{ item.title }</p>
+                <p className="card-text color-price">
+                  R$
+                  { item.price * item.quantidade }
+                </p>
+                <span
+                  data-testid="shopping-cart-product-quantity"
+                >
+                  Quantidade:
+                  { item.quantidade }
+                </span>
+              </div>
             </div>
           ))
         }
-        <h4>
+        <h4 className="price-total center-price">
           Valor Total: R$
           { this.pegarPrecoTotal() }
         </h4>
         <form>
-          <h4>Informações do Comprador</h4>
-          <div>
+          <h4 className="info-form">Informações do Comprador</h4>
+          <div className="formulario">
             <label htmlFor="infoComprador">
               <input
+                className="form-control"
                 data-testid="checkout-fullname"
                 type="text"
                 placeholder="Nome Completo"
@@ -62,6 +88,7 @@ export default class finalizaCompras extends Component {
             </label>
             <label htmlFor="emailComprador">
               <input
+                className="form-control"
                 data-testid="checkout-email"
                 type="e-mail"
                 placeholder="Email"
@@ -71,6 +98,7 @@ export default class finalizaCompras extends Component {
             </label>
             <label htmlFor="cpfComprador">
               <input
+                className="form-control"
                 data-testid="checkout-cpf"
                 type="text"
                 placeholder="CPF"
@@ -78,10 +106,9 @@ export default class finalizaCompras extends Component {
                 required
               />
             </label>
-          </div>
-          <div>
             <label htmlFor="telefoneComprador">
               <input
+                className="form-control"
                 data-testid="checkout-phone"
                 type="text"
                 placeholder="Telefone"
@@ -91,6 +118,7 @@ export default class finalizaCompras extends Component {
             </label>
             <label htmlFor="cepComprador">
               <input
+                className="form-control"
                 data-testid="checkout-cep"
                 type="text"
                 placeholder="CEP"
@@ -100,6 +128,7 @@ export default class finalizaCompras extends Component {
             </label>
             <label htmlFor="enderecoComprador">
               <input
+                className="form-control"
                 data-testid="checkout-address"
                 type="text"
                 placeholder="Endereço"

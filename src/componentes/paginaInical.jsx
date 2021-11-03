@@ -52,7 +52,7 @@ class paginaInicial extends React.Component {
             <label htmlFor="campoDePesquisa">
               <input
                 placeholder="digite aqui"
-                className="btn btn-outline-dark"
+                className="btn btn-outline-dark border"
                 type="text"
                 data-testid="query-input"
                 name="campoDePesquisa"

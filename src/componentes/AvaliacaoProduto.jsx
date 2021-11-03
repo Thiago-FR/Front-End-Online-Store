@@ -60,10 +60,11 @@ class AvaliacaoProduto extends Component {
     const { avaliacao, hover, comentarios, login, texto, botaoDesabilitado } = this.state;
     const estrelas = 5;
     return (
-      <div>
+      <div className="centralizar">
         <h1>Avaliações</h1>
         <form>
           <input
+            className="btn btn orange-input border"
             type="text"
             placeholder="login"
             value={ login }
@@ -71,47 +72,54 @@ class AvaliacaoProduto extends Component {
             name="login"
           />
           {/* Para fazer toda a lógica das estrelas, aprendemos com esse víde: https://www.youtube.com/watch?v=eDw46GYAIDQ */}
-          {[...Array(estrelas)].map((star, i) => {
-            const valorAvaliacao = i + 1;
-            return (
-              <label htmlFor="avaliacao" key={ i }>
-                <input
-                  className="radio"
-                  type="radio"
-                  name="avaliacao"
-                />
-                <FaStar
-                  className="estrela"
-                  color={ valorAvaliacao <= (hover || avaliacao) ? 'yellow' : 'grey' }
-                  onMouseEnter={ () => this.setState({ hover: valorAvaliacao }) }
-                  onMouseLeave={ () => this.setState({ hover: null }) }
-                  onClick={ () => {
-                    this.setState({ avaliacao: valorAvaliacao },
-                      () => this.validaBotao());
-                  } }
-                />
-              </label>
-            );
-          })}
-          <label htmlFor="texto">
-            <textarea
-              data-testid="product-detail-evaluation"
-              placeholder="Comentários(opcional)"
-              value={ texto }
-              onChange={ this.mudancaInput }
-              name="texto"
-            />
-          </label>
-          <button
-            type="button"
-            onClick={ this.enviarAvaliacao }
-            disabled={ botaoDesabilitado }
-          >
-            Enviar comentário!!
-          </button>
+          <div className="centralizar1">
+            {[...Array(estrelas)].map((star, i) => {
+              const valorAvaliacao = i + 1;
+              return (
+                <label htmlFor="avaliacao" key={ i }>
+                  <input
+                    className="radio"
+                    type="radio"
+                    name="avaliacao"
+                  />
+                  <FaStar
+                    className="estrela"
+                    color={ valorAvaliacao <= (hover || avaliacao) ? 'yellow' : 'grey' }
+                    onMouseEnter={ () => this.setState({ hover: valorAvaliacao }) }
+                    onMouseLeave={ () => this.setState({ hover: null }) }
+                    onClick={ () => {
+                      this.setState({ avaliacao: valorAvaliacao },
+                        () => this.validaBotao());
+                    } }
+                  />
+                </label>
+              );
+            })}
+          </div>
+          <div className="centralizar">
+            <label htmlFor="texto">
+              <textarea
+                className="form-text"
+                data-testid="product-detail-evaluation"
+                placeholder="Comentários(opcional)"
+                value={ texto }
+                onChange={ this.mudancaInput }
+                name="texto"
+              />
+            </label>
+            <button
+              className="btn btn orange-input border color-world"
+              type="button"
+              onClick={ this.enviarAvaliacao }
+              disabled={ botaoDesabilitado }
+            >
+              Enviar comentário!!
+            </button>
+          </div>
         </form>
         { comentarios && comentarios.map((comentario) => (
           <div
+            className="avaliacao"
             key={
               `${comentario.login}: ${comentario.avaliacao}: ${comentario.comentario}`
             }

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 import { salvarProduto } from '../services/salvarProdutos';
 import CartButton from './CartButton';
@@ -33,7 +34,13 @@ class DetalhamentoDoProduto extends React.Component {
         className="card mb-3"
         style={ { width: '550px' } }
       >
-        <div className="p-3 mb-2 bg-dark text-white">
+        <div className="p-3 mb-2 text-white fundo-detalhe">
+          <Link
+            to="/"
+            className="btn btn-dark imagem-item-cart botao-voltar"
+          >
+            voltar
+          </Link>
           <div className="col-md-4">
             <img
               style={ { width: '250px' } }
@@ -41,23 +48,23 @@ class DetalhamentoDoProduto extends React.Component {
               src={ produto.thumbnail }
               alt={ produto.title }
             />
-            { shipping && shipping.free_shipping && (
-              <p data-testid="free-shipping">FRETE GRATIS</p>
-            )}
           </div>
-          <div className="col-md-8 p-3 mb-2 bg-secondary text-white">
-            <div className="card-body">
+          <div className="col-md-8 p-3 mb-2 fundo-detalhe2 text-black centro">
+            <div className="card-body centro">
+              { shipping && shipping.free_shipping && (
+                <p data-testid="free-shipping">FRETE GRATIS</p>
+              )}
               <h3
-                className="card-title"
+                className="card-title centralizar-letra"
                 data-testid="product-detail-name"
               >
                 { produto.title }
               </h3>
-              <p className="card-text">
+              <h4 className="card-text preço1">
                 Preço:
                 { produto.price }
-              </p>
-              <h4 className="card-title">Especificações Tecnicas</h4>
+              </h4>
+              <h5 className="card-title">Especificações Tecnicas</h5>
               {attributes && attributes.map((atributo) => (
                 <p
                   key={ atributo.name }

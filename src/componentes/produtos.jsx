@@ -25,12 +25,13 @@ class Produtos extends React.Component {
             >
               <div className="cabeçalho-itens">
                 { element.shipping.free_shipping && (
-                  <p data-testid="free-shipping">FRETE GRATIS</p>
+                  <p
+                    className="fs-3 preço gratis"
+                    data-testid="free-shipping"
+                  >
+                    FRETE GRATIS
+                  </p>
                 )}
-                <p>
-                  R$
-                  { element.price }
-                </p>
                 <Link
                   className="btn btn-dark link-itens"
                   to={ `/detalhe/${element.category_id}/${element.id}` }
@@ -40,10 +41,10 @@ class Produtos extends React.Component {
                     { element.title }
                   </p>
                 </Link>
-                <p className="fs-3 preço">
+                <h3 className="fs-3 preço">
                   R$:
                   { element.price }
-                </p>
+                </h3>
                 <img
                   className="imagem-item"
                   src={ element.thumbnail }
