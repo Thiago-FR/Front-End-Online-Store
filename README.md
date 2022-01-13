@@ -1,90 +1,30 @@
-### Termos de acordos
+[PROJETO]() **LINK OFF**
 
-Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e Conduta e do Manual da Pessoa Estudante da Trybe
-
-# Boas vindas ao repositório do projeto de Front-End Online Store!
-
-Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
-
-Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir deste repositório, utilizando uma branch específica e um _Pull Request_ para colocar seus códigos.
+# Boas vindas ao repositório do projeto de Front-End Online Store! <a name="boas-vindas-ao-repositorio-do-projeto-pixels-arte"></a>
 
 # Sumário
 
-- [Habilidades](#habilidades)
-- [Entregáveis](#Entregáveis)
-  - [O que deverá ser desenvolvido](#o-que-deverá-ser-desenvolvido)
-  - [Desenvolvimento](#desenvolvimento)
-  - [Data de entrega](#data-de-entrega)
-- [Instruções para entregar seu projeto](#instruções-para-entregar-seu-projeto)
-  - [Antes de começar a desenvolver](#antes-de-começar-a-desenvolver)
-  - [Durante o desenvolvimento](#durante-o-desenvolvimento)
-- [Como desenvolver](#como-desenvolver)
-  - [Documentação da API do Mercado Livre](#documentação-da-api-do-mercado-livre)
-    - [Exemplo de requisição para listar categorias](exemplo-de-requisição-para-listar-categorias)
-    - [Exemplo de requisição de busca](#exemplo-de-requisição-de-busca)
-  - [EsLint](#eslint)
-  - [Usando o Trello como ferramenta kanban](#usando-o-trello-como-ferramenta-kanban)
-- [Como desenvolver](#como-desenvolver)
-- [Requisitos do projeto](#requisitos-do-projeto)
-  - [Grupos de prioridade](#grupos-de-prioridade)
-  - [Requisitos Bônus](#requisitos-bônus)
-  - [Lista de requisitos](#lista-de-requisitos)
+## Sumário <a name="sumario"></a>
 
-    `Requisitos Obrigatórios`
-    - [1. Implemente o módulo de acesso à api do Mercado Livre](#1-implemente-o-módulo-de-acesso-à-api-do-mercado-livre)
-    - [2. Crie uma página de listagem de produtos vazia](#2-crie-uma-página-de-listagem-de-produtos-vazia)
-    - [3. Crie a página do carrinho de compras](#3-crie-a-página-do-carrinho-de-compras)
-    - [4. Liste as categorias de produtos disponíveis via API na página principal](#4-liste-as-categorias-de-produtos-disponíveis-via-api-na-página-principal)
-    - [5. Liste os produtos buscados por termos, com os dados resumidos, associados a esses termos](#5-liste-os-produtos-buscados-por-termos-com-os-dados-resumidos-associados-a-esses-termos)
-    - [6. Selecione uma categoria e mostre somente os produtos daquela categoria](#6-selecione-uma-categoria-e-mostre-somente-os-produtos-daquela-categoria)
-    - [7. Redirecione para uma tela com a exibição detalhada ao clicar na exibição resumida de um produto](#7-redirecione-para-uma-tela-com-a-exibição-detalhada-ao-clicar-na-exibição-resumida-de-um-produto)
-    - [8. Adicione produtos a partir da tela de listagem de produtos](#8-adicione-produtos-a-partir-da-tela-de-listagem-de-produtos)
-    - [9. Adicione um produto ao carrinho a partir de sua tela de exibição detalhada](#9-adicione-um-produto-ao-carrinho-a-partir-de-sua-tela-de-exibição-detalhada)
-    - [10. Visualize a lista de produtos adicionados ao carrinho em sua página e permita a manipulação da sua quantidade](#10-visualize-a-lista-de-produtos-adicionados-ao-carrinho-em-sua-página-e-permita-a-manipulação-da-sua-quantidade)
-    - [11. Avalie e comente acerca de um produto em sua tela de exibição detalhada](#11-avalie-e-comente-acerca-de-um-produto-em-sua-tela-de-exibição-detalhada)
-    - [12. Finalize a compra vendo um resumo dela, preenchendo os seus dados e escolhendo a forma de pagamento](#12-finalize-a-compra-vendo-um-resumo-dela-preenchendo-os-seus-dados-e-escolhendo-a-forma-de-pagamento)
+- [Boas vindas ao repositório do projeto ront-End Online Store!](#boas-vindas-ao-repositorio-do-projeto-pixels-arte)
+- [Sumário](#sumario)
+- [Habilidades desenvolvidas](#habilidades)
+- [O que foi desenvolvido](#o-que-foi-desenvolvido)
+- [Para testar o projeto](#testar-o-projeto)
 
-    `Requisitos Bônus`
-    - [13. Mostre junto ao ícone do carrinho a quantidade de produtos dentro dele, em todas as telas em que ele aparece](#13-mostre-junto-ao-ícone-do-carrinho-a-quantidade-de-produtos-dentro-dele-em-todas-as-telas-em-que-ele-aparece)
-    - [14. Limite a quantidade de produtos adicionados ao carrinho pela quantidade disponível em estoque](#14-limite-a-quantidade-de-produtos-adicionados-ao-carrinho-pela-quantidade-disponível-em-estoque)
-    - [15. Mostre quais produtos tem o frete grátis](#15-mostre-quais-produtos-tem-o-frete-grátis)
-
-    `Requisitos Extras Não Avaliativos`
-    - [16. Faça um layout para o site](#16-faça-um-layout-para-o-site)
-    - [17. Faça um layout responsivo para o site](#17-faça-um-layout-responsivo-para-o-site)
-    - [18. Crie um seletor dropdown para ordenar a lista de produto por maior e menor preço](#18-crie-um-seletor-dropdown-para-ordenar-a-lista-de-produto-por-maior-e-menor-preço)
-    - [19. Coloque uma animação no carrinho para quando um produto for adicionado](#19-coloque-uma-animação-no-carrinho-para-quando-um-produto-for-adicionado)
-    - [20. Crie um slider lateral para exibir o carrinho na tela principal](#20-crie-um-slider-lateral-para-exibir-o-carrinho-na-tela-principal)
-    - [21. Destaque, na tela principal, os produtos já adicionados ao carrinho](#21-destaque-na-tela-principal-os-produtos-já-adicionados-ao-carrinho)
-    - [22. Impeça que a quantidade do produto seja negativa](#22-impeça-que-a-quantidade-do-produto-seja-negativa)
-- [Depois de terminar o desenvolvimento (opcional)](#depois-de-terminar-o-desenvolvimento-opcional)
-- [Revisando um pull request](#revisando-um-pull-request)
-- [Avisos finais](#avisos-finais)
-
-# Habilidades
-
-Nesse projeto, você será capaz de:
+## Habilidades desenvolvidas <a name="habilidades"></a>
 
 * Entender o que são Métodos Ágeis
 * Entender o que é Kanban
 * Entender o que é Scrum
 * Trabalhar em equipes utilizando Kanban ou Scrum de maneira eficaz
-* Praticar todas as habilidades desenvolvidas até agora no módulo de Front-End
-
----
-
-# Entregáveis
-
-Para entregar o seu projeto você deverá criar um Pull Request neste repositório.
-
-Lembre-se que você pode consultar nosso conteúdo sobre
-[Git & GitHub](https://course.betrybe.com/intro/git/) sempre que precisar!
+* Praticar todas as habilidades desenvolvidas no módulo de Front-End
 
 --- 
 
-## O que deverá ser desenvolvido
+## O que foi desenvolvido <a name="o-que-foi-desenvolvido"></a>
 
-Neste projeto você criará uma versão simplificada, sem persistência no banco de dados, de uma **loja online**, desenvolvendo em grupo suas funcionalidades de acordo com demandas definidas em um quadro _Kanban_, em um cenário mais próximo ao do mercado de trabalho. A partir dessas demandas, teremos uma aplicação onde os usuários poderão:
+Neste projeto foi criado uma versão simplificada, sem persistência no banco de dados, de uma **loja online**. Suas funcionalidades foram desenvolvida em grupo de acordo com demandas definidas em um quadro [KANBAN](https://trello.com/b/9ZdYZsaS/online-store) em um cenário mais próximo ao do mercado de trabalho. A partir dessas demandas, temos uma aplicação onde os usuários poderão:
   - Buscar produtos por termos e categorias a partir da _API do Mercado Livre_;
   - Interagir com os produtos buscados de modo a adicioná-los e removê-los de um carrinho de compras em diferentes quantidades;
   - Visualizar detalhes e avaliações prévias de um produto, bem como criar novas avaliações;
@@ -92,72 +32,20 @@ Neste projeto você criará uma versão simplificada, sem persistência no banco
 
 ---
 
-## Desenvolvimento
-
----
-
-## Data de entrega
-
-  - Projeto em grupo;
-
-  - Serão 04 dias de projeto;
-
-  - Data de entrega para avaliação final do projeto: `04/11/2021 - 14:00h`
-
----
-
-# Intruções para entregar seu projeto:
-
-### Antes de começar a desenvolver
+## Para testar o projeto <a name="testar-o-projeto"></a>
 
 1. Clone o repositório
-  * `git clone git@github.com:tryber/sd-015-a-project-frontend-online-store.git`
+  * `git clone git@github.com:Thiago-FR/Front-End-Online-Store.git`
   * Entre na pasta do repositório que você acabou de clonar:
-    * `cd sd-015-a-project-frontend-online-store`
-  * Vá para a branch do seu grupo, com `git checkout main-group-XX && git pull`, onde `XX` é o número do seu grupo. Exemplos: `main-group-1`, `main-group-22`.
 
 2. Instale as dependências e inicialize o projeto
   * Instale as dependências:
     * `npm install`
   * Inicialize o projeto:
-    * `npm start` (uma nova página deve abrir no seu navegador com um texto simples)
+    * `npm start` (uma nova página deve abrir no seu navegador)
 
-3. Faça alterações separadas por novas branchs criadas a partir da branch `main-group-XX`, criando uma nova branch para cada demanda
-  * Verifique que você está na branch `main-group-XX`
-    * Exemplo: `git branch`
-  * Se não estiver, mude para a branch `main-group-XX`
-    * Exemplo: `git checkout main-group-XX && git pull`
-  * Agora, crie uma branch para a demanda que você vai desenvolver do seu projeto
-    * Você deve criar uma branch com uma breve descrição da demanda a ser desenvolvida
-    * Exemplo: `git checkout -b main-group-XX-cria-campo-de-busca`
-
-4. Adicione as mudanças ao _stage_ do Git e faça um `commit`
-  * Verifique que as mudanças ainda não estão no _stage_
-    * Exemplo: `git status` (devem aparecer listadas as novas alterações em vermelho)
-  * Adicione o arquivo alterado ao _stage_ do Git
-      * Exemplo:
-        * `git add .` (adicionando todas as mudanças - _que estavam em vermelho_ - ao stage do Git)
-        * `git status` (devem aparecer listadas as novas alterações em verde)
-  * Faça seus `commit`
-      * Exemplo:
-        * `git commit -m 'cria componente de busca`
-        * `git status` (deve aparecer uma mensagem tipo _nothing to commit_ )
-
-5. Adicione a sua branch com o novo `commit` ao repositório remoto
-  * Usando o exemplo anterior: `git push -u origin main-group-XX-cria-campo-de-busca`
-
-6. Crie um novo `Pull Request` _(PR)_
-  * Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-015-a-project-frontend-online-store/pulls)
-  * Clique no botão verde _"New pull request"_
-  * Clique na caixa de seleção _"Compare"_ e escolha a branch do grupo, `main-group-XX`, e a sua branch **com atenção**
-  * Coloque um título para a sua _Pull Request_
-    * Exemplo: _"[GRUPO XX] Cria tela de busca"_
-  * Clique no botão verde _"Create pull request"_
-  * Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
-  * **Não se preocupe em preencher mais nada por enquanto!**
-  * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-015-a-project-frontend-online-store/pulls) e confira que o seu _Pull Request_ está criado
-
-7. Assim que aprovado por pelo menos duas pessoas do seu grupo e o _Linter_ estiver adereçado, acesse **SEU** _Pull Request_ e clique no botão _"Merge pull request"_
+3. Ou click no link abaixo e veja funcionando.
+  * [PROJETO]() **LINK OFF**
 
 
 ### Durante o desenvolvimento
