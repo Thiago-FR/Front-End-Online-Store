@@ -1,4 +1,4 @@
-[PROJETO](https://front-end-online-store.vercel.app/)
+[PROJETO](https://front-end-online-store-n61zrg31e-thiago-fr.vercel.app/)
 
 # Boas vindas ao repositório do projeto de Front-End Online Store! <a name="boas-vindas-ao-repositorio-do-projeto-pixels-arte"></a>
 
@@ -45,5 +45,5 @@ Neste projeto foi criado uma versão simplificada, sem persistência no banco de
     * `npm start` (uma nova página deve abrir no seu navegador)
 
 3. Ou click no link abaixo e veja funcionando.
-  * [PROJETO](https://front-end-online-store.vercel.app/)
+  * [PROJETO](https://front-end-online-store-n61zrg31e-thiago-fr.vercel.app/)
 
