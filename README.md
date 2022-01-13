@@ -2,11 +2,9 @@
 
 # Boas vindas ao repositório do projeto de Front-End Online Store! <a name="boas-vindas-ao-repositorio-do-projeto-pixels-arte"></a>
 
-# Sumário
-
 ## Sumário <a name="sumario"></a>
 
-- [Boas vindas ao repositório do projeto ront-End Online Store!](#boas-vindas-ao-repositorio-do-projeto-pixels-arte)
+- [Boas vindas ao repositório do projeto Front-End Online Store!](#boas-vindas-ao-repositorio-do-projeto-pixels-arte)
 - [Sumário](#sumario)
 - [Habilidades desenvolvidas](#habilidades)
 - [O que foi desenvolvido](#o-que-foi-desenvolvido)
