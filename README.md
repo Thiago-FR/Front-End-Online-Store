@@ -9,6 +9,7 @@
 - [Habilidades desenvolvidas](#habilidades)
 - [O que foi desenvolvido](#o-que-foi-desenvolvido)
 - [Para testar o projeto](#testar-o-projeto)
+- [Protótipo](#prototipo)
 
 ## Habilidades desenvolvidas <a name="habilidades"></a>
 
@@ -45,3 +46,6 @@ Neste projeto foi criado uma versão simplificada, sem persistência no banco de
 3. Ou click no link abaixo e veja funcionando.
   * [PROJETO](https://front-end-online-store-n61zrg31e-thiago-fr.vercel.app/)
 
+## Protótipo <a name="prototipo"></a>
+
+![Protótipo](/front-online-store.gif)
